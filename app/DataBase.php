@@ -14,11 +14,13 @@ class DataBase{
         $this->setConnection();
         $this->table = $table;
     }
+    
     private function setConnection(){
         $this->connection = new PDO
         ('mysql:host='.self::HOST.';dbname='.self::DBNAME,self::USER,self::PASSWORD);
         $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
+    
     public function execute($query, $values = null){
         try{
             echo "<pre>";

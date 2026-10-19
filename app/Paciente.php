@@ -1,5 +1,6 @@
 <?php
 namespace App;
+use PDO;
 class Paciente extends Pessoa{
     public $convenio;
     public $observacao;
@@ -26,6 +27,6 @@ class Paciente extends Pessoa{
     }
     public static function listar(){
         
-        return null;
+        return (new DataBase('paciente')->select())->fetchALL(PDO::FETCH_CLASS, self::class);
     }
 }
